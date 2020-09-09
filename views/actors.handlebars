@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actors</title>
+</head>
+<body>
+    
+    {{#each actors}}
+
+<div class="card mt-3 ml-5 text-white bg-secondary border-dark" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4" style="background-image: url(https://m.media-amazon.com/images/M/MV5BODA4NTk3MTQwN15BMl5BanBnXkFtZTcwNjUwMTMxNA@@._V1_.jpg);">
+        
+      <img src="" class="card-img" alt="Actor DP" style="max-width: 100%;">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{fname}} {{lname}}</h5>
+        <p class="card-text">American Origin</p>
+        <p class="card-text"><small>{{about}}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{/each}}
+
+
+
+
+</body>
+</html>
