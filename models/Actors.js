@@ -1,3 +1,4 @@
+const { STRING } = require("sequelize");
 const sequelize = require("sequelize");
 
 const db = require("../config/database");
@@ -10,6 +11,12 @@ const Actors = db.define("actors", {
     required: true,
   },
   lname: {
+    type: sequelize.STRING,
+  },
+  origin: {
+    type: sequelize.STRING,
+  },
+  coveractor: {
     type: sequelize.STRING,
   },
 });

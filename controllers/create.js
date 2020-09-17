@@ -13,10 +13,16 @@ router.get("/create", async (req, res) => {
 });
 
 router.post("/create", async (req, res) => {
-  const { name, gener, year, ratings } = req.body;
-  const { fname, lname } = req.body;
-  const newMovie = await Movies.create({ name, gener, year, rating });
-  const newActor = await Actors.create({ fname, lname });
+  const { name, gener, year, rating, covermovie } = req.body;
+  const { fname, lname, origin, coveractor } = req.body;
+  const newMovie = await Movies.create({
+    name,
+    gener,
+    year,
+    rating,
+    covermovie,
+  });
+  const newActor = await Actors.create({ fname, lname, origin, coveractor });
   await newMovie.addActors(newActor);
   const movieActor = await newMovie.getActors();
   // const result = await Movies.findAll({ include: Actors });

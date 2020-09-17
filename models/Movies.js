@@ -18,6 +18,9 @@ const Movies = db.define("movies", {
   ratings: {
     type: sequelize.INTEGER,
   },
+  covermovie: {
+    type: sequelize.STRING,
+  },
 });
 
 db.sync({})

@@ -6,17 +6,19 @@
     <title>Imdb</title>
 </head>
 <body>
+
+  
     
     {{#each imdbs}}
     <div class="card m-3 float-left" style="width: 22rem;">
-  <img src="../220px-Extraction_(2020_film).jpeg" class="card-img-top" alt="...">
+  <img src="{{covermovie}}" alt="..." style="height: 300px;">
   <div class="card-body">
     <h5 class="card-title">{{name}}</h5>
     <p class="card-text">{{gener}}</p>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">{{year}}</li>
-    <li class="list-group-item">{{ratings}}</li>
+    <li class="list-group-item">{{ratings}}/10</li>
   </ul>
   {{#each this.actors}}
   <div class="card-body">
