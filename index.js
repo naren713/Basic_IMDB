@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+var cookieParser = require("cookie-parser");
 PORT = process.env.PORT || 3000;
 
 // Using Handle bars
@@ -26,6 +27,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("public/images"));
 
+app.use(cookieParser());
+
 app.set("view engine", "handlebars");
 
 const db = require("./config/database");
@@ -46,5 +49,8 @@ app.use("/", require("./controllers/homePage"));
 app.use("/", require("./controllers/movies"));
 app.use("/", require("./controllers/actors"));
 app.use("/", require("./controllers/create"));
+app.use("/", require("./controllers/login"));
+app.use("/", require("./controllers/register"));
+app.use("/", require("./controllers/firstPage"));
 
 app.listen(PORT, () => console.log(`Server Started on Port ${PORT}`));

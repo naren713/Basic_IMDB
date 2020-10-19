@@ -8,8 +8,10 @@ const Actors = require("../models/Actors");
 
 const ActorMovies = require("../models/ActorMovies");
 
-router.get("/create", async (req, res) => {
-  res.render("create");
+const authenticate = require("../verifyTokens");
+
+router.get("/create", authenticate, async (req, res) => {
+  res.render("create", { layout: "loggedin" });
 });
 
 router.post("/create", async (req, res) => {
