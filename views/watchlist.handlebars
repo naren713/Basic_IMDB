@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watchlist</title>
+</head>
+<body>
+    <br>    
+    <h2 class="ml-3">My Watchlist</h2>
+    
+    {{#each toWatch}}
+
+<div class="card mt-3 ml-5 text-white bg-info border-dark" style="max-width: 540px;">
+  <div class="row no-gutters">
+    <div class="col-md-4" style="background-image: url(https://m.media-amazon.com/images/M/MV5BODA4NTk3MTQwN15BMl5BanBnXkFtZTcwNjUwMTMxNA@@._V1_.jpg);">
+        
+      <img src="{{covermovie}}" class="card-img" alt="Movie Poster" style="max-width: 100%;">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">{{gener}}</p>
+        <p class="card-text"><small>{{year}}</small></p>
+      </div>
+      <div>
+
+          <button type="button" class="btn btn-primary ml-5" data-toggle="modal" data-target="#exampleModal">
+  Watched
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ABC</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Have 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <form action="/deletefromwatchlist/{{id}}?_method=DELETE" method="POST">
+        <button class="btn btn-danger" type="submit">Watched</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{/each}}
+
+
+
+
+</body>
+</html>

@@ -1,25 +1,31 @@
-const { STRING } = require("sequelize");
 const sequelize = require("sequelize");
 
 const db = require("../config/database");
-const Watchlist = require("./Watchlist");
 
-const User = db.define("user", {
+const User = require("./User");
+
+const Watchlist = db.define("watchlist", {
   name: {
     type: sequelize.STRING,
     required: true,
   },
-  email: {
+  gener: {
     type: sequelize.STRING,
-    required: true,
   },
-  password: {
+  year: {
+    type: sequelize.INTEGER,
+  },
+  ratings: {
+    type: sequelize.INTEGER,
+  },
+  covermovie: {
     type: sequelize.STRING,
-    required: true,
   },
 });
 
-Watchlist.belongsTo(User);
+User.associate = (models) => {
+  Users.hasMany(models.Watchlist);
+};
 
 db.sync({})
   .then(() => {
@@ -29,4 +35,4 @@ db.sync({})
     console.log(err);
   });
 
-module.exports = User;
+module.exports = Watchlist;

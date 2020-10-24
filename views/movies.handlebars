@@ -21,6 +21,11 @@
         <p class="card-text">{{gener}}</p>
         <p class="card-text"><small>{{year}}</small></p>
       </div>
+      <div>
+        <form action="/addtowatchlist/{{id}}" method="POST">
+        <button class="btn btn-primary ml-5" type="submit">Add to Watchlist</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>

@@ -1,7 +1,8 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-var cookieParser = require("cookie-parser");
+const cookieParser = require("cookie-parser");
+const methodOverride = require("method-override");
 PORT = process.env.PORT || 3000;
 
 // Using Handle bars
@@ -29,6 +30,8 @@ app.use(express.static("public/images"));
 
 app.use(cookieParser());
 
+app.use(methodOverride("_method"));
+
 app.set("view engine", "handlebars");
 
 const db = require("./config/database");
@@ -52,5 +55,7 @@ app.use("/", require("./controllers/create"));
 app.use("/", require("./controllers/login"));
 app.use("/", require("./controllers/register"));
 app.use("/", require("./controllers/firstPage"));
+app.use("/", require("./controllers/Addtowatchlist"));
+app.use("/", require("./controllers/Watchlist"));
 
 app.listen(PORT, () => console.log(`Server Started on Port ${PORT}`));
